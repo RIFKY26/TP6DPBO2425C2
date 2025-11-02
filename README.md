@@ -21,6 +21,7 @@ Program ini dibagi menjadi beberapa kelas, masing-masing dengan tanggung jawab y
     
 **3. Logic.java**
   - Kelas ini adalah otak dari permainan.
+  - Memuat semua aset gambar (player, pipa, dan latar belakang).
   - Mengimplementasikan ActionListener untuk menjadi game loop utama (menggunakan Timer).
   -	Mengimplementasikan KeyListener untuk menerima input "Spasi" untuk (lompat) dan "R" untuk (restart).
   -	Mengelola semua status game: posisi player, gravitasi, daftar pipa (ArrayList<Pipe>), dan status gameOver.
@@ -32,7 +33,7 @@ Program ini dibagi menjadi beberapa kelas, masing-masing dengan tanggung jawab y
 **4. View.java**
   -	Ini adalah JPanel (kanvas) tempat semua grafis digambar.
   -	Tugas utamanya hanya menggambar.
-  -	Meng-override metode paintComponent() untuk menggambar gambar Player dan semua Pipe di posisinya saat ini, berdasarkan data yang diambil dari Logic.
+  -	Meng-override metode paintComponent() untuk menggambar gambar latar belakang terlebih dahulu, baru kemudian menggambar Player dan semua Pipe di atasnya.
   -	Meminta fokus keyboard (requestFocusInWindow()) agar bisa menerima input.
     
 **5. Player.java**
@@ -48,7 +49,9 @@ Berikut adalah alur jalannya program dari awal hingga akhir:
     -	Sebuah instance new App() dibuat, yang memunculkan jendela game.
 3.	Inisialisasi Game:
     -	App membuat JLabel (skor), Logic (otak), dan View (kanvas).
-    -	Logic memulai dua Timer: gameLoop (untuk pergerakan) dan pipesCooldown (untuk membuat pipa baru).
+    -	Logic memulai constructor-nya:
+        - Memuat semua aset gambar (player, pipa, latar belakang).
+        - Memulai dua Timer: gameLoop (untuk pergerakan) dan pipesCooldown (untuk membuat pipa baru).
     -	View meminta fokus keyboard.
 4.	Game Berlangsung (Game Loop):
     -	Timer gameLoop di Logic berjalan terus-menerus (sekitar 60 kali per detik).
@@ -57,7 +60,8 @@ Berikut adalah alur jalannya program dari awal hingga akhir:
         -	Semua Pipe di ArrayList digerakkan ke kiri (posisi X berubah).
         -	Logic memeriksa apakah player baru saja melewati sepasang pipa. Jika ya, score bertambah dan label skor diperbarui (app.updateScore()).
         -	Logic memanggil checkCollisions() untuk memeriksa tabrakan.
-    -	Setelah move(), Logic memanggil view.repaint() agar View menggambar ulang semua di posisi baru.
+    -	Setelah move(), Logic memanggil view.repaint().
+    -	View.paintComponent() dipanggil, menggambar ulang latar belakang, lalu player, lalu semua pipa di posisi baru mereka.
 5.	Input Pemain:
     -	Pemain menekan "Spasi".
     -	View menangkap input dan meneruskannya ke Logic.keyPressed().
@@ -75,4 +79,5 @@ Berikut adalah alur jalannya program dari awal hingga akhir:
 # Dokumentasi
 
 ![bandicam 2025-11-02 20-15-14-474](https://github.com/user-attachments/assets/c195fd68-594f-4730-9abc-a558bffab83f)
+
 

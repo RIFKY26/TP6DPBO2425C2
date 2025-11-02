@@ -36,10 +36,10 @@ public class View extends JPanel {
         if (pipes != null){
             for (int i = 0; i < pipes.size(); i++){
                 Pipe pipe = pipes.get(i);
-                // --- TYPO DIPERBAIKI DI SINI ---
                 g.drawImage(pipe.getImage(), pipe.getPosX(), pipe.getPosY(),
                         pipe.getWidth(), pipe.getHeight(), null);
             }
         }
     }
+
 }

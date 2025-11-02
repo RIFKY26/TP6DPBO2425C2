@@ -17,7 +17,7 @@ public class Logic implements ActionListener, KeyListener {
     int playerHeight = 24;
 
     int pipeStartPosX = frameWidth;
-    int getPipeStartPosY = 0; // Anda mungkin punya typo di sini, getPipeStartPosY?
+    int getPipeStartPosY = 0; 
     int pipeWidth = 64;
     int pipeHeight = 512;
 
@@ -35,9 +35,8 @@ public class Logic implements ActionListener, KeyListener {
     Image backgroundImage;
 
     // --- ATRIBUT BARU UNTUK SKOR ---
-    private App app;    // <-- TAMBAHAN: Untuk referensi ke App
-    private int score;  // <-- TAMBAHAN: Untuk menyimpan skor
-
+    private App app;    
+    private int score; 
     // --- CONSTRUCTOR ---
     public Logic(App app) {
         this.app = app;
@@ -82,7 +81,7 @@ public class Logic implements ActionListener, KeyListener {
             // Cek jika pipa belum dihitung (passed) DAN player sudah melewatinya
             if (!pipe.isPassed() && player.getPosx() > pipe.getPosX() + pipe.getWidth()) {
 
-                // Tambah skor hanya sekali per PASANG pipa
+                // Tambah skor hanya sekali per pipa
                 // (Kita asumsikan pipa atas adalah index genap: 0, 2, 4, ...)
                 if (i % 2 == 0) {
                     score++;
@@ -140,7 +139,7 @@ public class Logic implements ActionListener, KeyListener {
     }
 
     public void checkCollisions() {
-        // Gunakan getPosx() sesuai file Player.java Anda
+       
         Rectangle playerBounds = new Rectangle(player.getPosx(), player.getPosy(), player.getWidth(), player.getHeight());
 
         // 1. Cek tabrakan dengan pipa
@@ -172,7 +171,6 @@ public class Logic implements ActionListener, KeyListener {
         // --- TAMBAHAN: RESET SKOR ---
         score = 0;
         app.updateScore(score); // Update JLabel kembali ke 0
-        // -----------------------------
 
         // 4. Mulai ulang kedua timer
         gameLoop.start();
@@ -205,4 +203,5 @@ public class Logic implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {
         // Tidak digunakan
     }
+
 }

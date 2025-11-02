@@ -3,10 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Kelas MainMenu, sekarang menjadi entry point program.
- * Menampilkan JFrame dengan dua tombol.
- */
 public class MainMenu extends JFrame implements ActionListener {
 
     JButton playButton;
@@ -15,13 +11,13 @@ public class MainMenu extends JFrame implements ActionListener {
     public MainMenu() {
         // --- Setup JFrame Main Menu ---
         setTitle("Flappy Bird - Main Menu");
-        setSize(360, 640); // Samakan dengan ukuran game
+        setSize(360, 640); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
 
         // --- Setup Panel untuk Tombol ---
-        // Kita pakai GridBagLayout agar tombol bisa rapi di tengah
+        //pakai GridBagLayout agar tombol bisa rapi di tengah
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -69,3 +65,4 @@ public class MainMenu extends JFrame implements ActionListener {
         new MainMenu();
     }
 }
+

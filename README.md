@@ -74,4 +74,4 @@ Berikut adalah alur jalannya program dari awal hingga akhir:
 
 # Dokumentasi
 
-![bandicam 2025-11-02 19-58-20-189](https://github.com/user-attachments/assets/b4b8e029-879b-4b6b-a514-83f5eade7621)
+![bandicam 2025-11-02 20-15-14-474](https://github.com/user-attachments/assets/c195fd68-594f-4730-9abc-a558bffab83f)

@@ -32,22 +32,22 @@ public class Logic implements ActionListener, KeyListener {
     int gravity = 1;
     int pipeVelocityX = -2;
     boolean gameOver;
+    Image backgroundImage;
 
     // --- ATRIBUT BARU UNTUK SKOR ---
     private App app;    // <-- TAMBAHAN: Untuk referensi ke App
     private int score;  // <-- TAMBAHAN: Untuk menyimpan skor
 
     // --- CONSTRUCTOR ---
-    public Logic(App app) { // <-- UBAHAN: Menerima 'App app'
-        this.app = app;     // <-- TAMBAHAN: Simpan referensi App
-        this.score = 0;     // <-- TAMBAHAN: Inisialisasi skor
+    public Logic(App app) {
+        this.app = app;
+        this.score = 0;
 
-        // --- Sisa constructor sama seperti sebelumnya ---
         birdImage = new ImageIcon(getClass().getResource("./assets/bird.png")).getImage();
         player = new Player(playerStartPosX, playerStartPosY, playerWidth, playerHeight, birdImage);
-
         lowerPipeImage = new ImageIcon(getClass().getResource("./assets/lowerPipe.png")).getImage();
         upperPipeImage = new ImageIcon(getClass().getResource("./assets/upperPipe.png")).getImage();
+        backgroundImage = new ImageIcon(getClass().getResource("./assets/background.png")).getImage();
         pipes = new ArrayList<Pipe>();
 
         pipesCooldown = new Timer(1500, new ActionListener() {
@@ -121,6 +121,10 @@ public class Logic implements ActionListener, KeyListener {
 
     public ArrayList<Pipe> getPipes() {
         return pipes;
+    }
+
+    public Image getBackgroundImage() {
+        return backgroundImage;
     }
 
     public void placePipes(){

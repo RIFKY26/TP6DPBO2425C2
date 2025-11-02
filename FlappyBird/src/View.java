@@ -10,7 +10,7 @@ public class View extends JPanel {
     public View(Logic logic) {
         this.logic = logic;
         setPreferredSize(new Dimension(width, height));
-        setBackground(Color.cyan);
+        //setBackground(Color.cyan);
 
         // Membuat panel ini bisa fokus menerima input
         setFocusable(true);
@@ -25,6 +25,7 @@ public class View extends JPanel {
     }
 
     public void draw(Graphics g) {
+        g.drawImage(logic.getBackgroundImage(), 0, 0, width, height, null);
         Player player = logic.getPlayer();
         if (player != null) {
             g.drawImage(player.getImage(), player.getPosx(), player.getPosy(),
